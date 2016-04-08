@@ -14,17 +14,17 @@ class Jury
         # create vote by input finalist
         votes = Hash[finalists.map {|f| [f, 0]}]
         # randomly add member votes to finalists
-        @members.each do|member|
+        @members.each do |member|
             pick = votes.keys.sample 
             votes[pick] += 1
-            puts "#{member} gave vote for #{pick}"
+            puts "#{member.to_s} gave vote for #{pick}".yellow
         end
         
         votes
     end
     
     def report_votes final_votes
-        final_votes.each {|k,v| puts "#{k} got #{v} votes"}
+        final_votes.each {|k,v| puts "#{k} got #{v} votes".blue}
     end
     
     def announce_winner final_votes

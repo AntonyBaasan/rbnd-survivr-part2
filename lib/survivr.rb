@@ -1,3 +1,4 @@
+require "colorizr"
 require_relative "game"
 require_relative "tribe"
 require_relative "contestant"
@@ -20,15 +21,17 @@ require_relative "jury"
 
 #This is where you will write your code for the three phases
 def phase_one
-    
+    puts "--- PHASE 1 ---".green
     8.times do |i|
         lost_tribe = @borneo.immunity_challenge
+        puts "Tribe #{lost_tribe} lost".red
         contestant_with_immune = lost_tribe.members.sample
-        lost_tribe.tribal_council immune:contestant_with_immune
+        eliminated = lost_tribe.tribal_council immune:contestant_with_immune
     end
 end
 
 def phase_two
+    puts "--- PHASE 2 ---".green
     3.times do |i|
         contestant_with_immune = @borneo.individual_immunity_challenge
         @borneo.tribes.first.tribal_council immune:contestant_with_immune
@@ -36,6 +39,7 @@ def phase_two
 end
 
 def phase_three
+    puts "--- PHASE 3 ---".green
     7.times do |i|
         contestant_with_immune = @borneo.individual_immunity_challenge
         @jury.add_member @borneo.tribes.first.tribal_council immune:contestant_with_immune

@@ -25,7 +25,9 @@ class Game
             merged_members += t.members
         end
         
-        Tribe.new({name: new_tribe_name, members: merged_members})
+        clear_tribes
+        add_tribe Tribe.new({name: new_tribe_name, members: merged_members})
+        @tribes.first
     end
     
     def individual_immunity_challenge

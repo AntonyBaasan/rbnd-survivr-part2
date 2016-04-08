@@ -10,7 +10,9 @@ class Tribe
     
     def tribal_council immune:
         candidates = @members.select { |a| a != immune }
-        @members.delete(candidates.sample)
+        elim = @members.delete(candidates.sample)
+        puts "Tribe #{@name} eliminated '#{elim}'"
+        elim
     end
     
     def to_s
