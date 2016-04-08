@@ -9,6 +9,7 @@ class Jury
         members.push contestant
     end
     
+    # creates votes hash by the finalists amount
     def cast_votes finalists
         # create vote by input finalist
         votes = Hash[finalists.map {|f| [f, 0]}]
