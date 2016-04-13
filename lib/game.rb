@@ -6,8 +6,7 @@ class Game
     end
     
     def add_tribe tribe
-        @tribes.push(tribe)# ???
-        # @tribes
+        @tribes.push(tribe)
     end
     
     def clear_tribes

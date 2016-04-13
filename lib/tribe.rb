@@ -8,7 +8,7 @@ class Tribe
         puts "Tribe #{@name} created"
     end
     
-    def tribal_council immune:
+    def tribal_council immune: nil
         candidates = @members.select { |a| a != immune }
         elim = @members.delete(candidates.sample)
         puts "Tribe #{@name} eliminated '#{elim}'"

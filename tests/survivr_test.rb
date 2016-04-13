@@ -5,6 +5,7 @@ require_relative "../lib/tribe"
 require_relative "../lib/contestant"
 require_relative "../lib/jury"
 
+
 class TestSurvivr < Minitest::Test
 
   def setup

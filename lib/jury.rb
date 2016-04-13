@@ -12,7 +12,7 @@ class Jury
     # creates votes hash by the finalists amount
     def cast_votes finalists
         # create vote by input finalist
-        votes = Hash[finalists.map {|f| [f, 0]}]
+        votes = Hash[finalists.map {|finalist| [finalist, 0]}]
         # randomly add member votes to finalists
         @members.each do |member|
             pick = votes.keys.sample 
@@ -24,11 +24,11 @@ class Jury
     end
     
     def report_votes final_votes
-        final_votes.each {|k,v| puts "#{k} got #{v} votes".blue}
+        final_votes.each {|finalist, votes| puts "#{finalist} got #{votes} votes".blue}
     end
     
     def announce_winner final_votes
         # find a hash with max value, and take key(finalist object) of the hash
-        final_votes.max_by {|f, v| v}[0]
+        final_votes.max_by {|finalist, votes| votes}[0]
     end
 end

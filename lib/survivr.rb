@@ -25,8 +25,7 @@ def phase_one
     8.times do |i|
         lost_tribe = @borneo.immunity_challenge
         puts "Tribe #{lost_tribe} lost".red
-        contestant_with_immune = lost_tribe.members.sample
-        eliminated = lost_tribe.tribal_council immune:contestant_with_immune
+        eliminated = lost_tribe.tribal_council
     end
 end
 
